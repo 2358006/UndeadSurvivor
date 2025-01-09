@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 public class RePosition : MonoBehaviour
@@ -32,6 +33,10 @@ public class RePosition : MonoBehaviour
         break;
 
       case "Enemy":
+        if (collision.enabled)
+        {
+          transform.Translate(playerDir * 20 + new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0f));
+        }
         break;
     }
   }
