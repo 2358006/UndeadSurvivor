@@ -1,11 +1,10 @@
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 public class Enemy : MonoBehaviour
 {
   public float speed = 0;
   public Rigidbody2D target = null;
 
-  bool isLive;
+  bool isLive = true;
 
   Rigidbody2D rigid = null;
   SpriteRenderer spriter = null;
@@ -37,5 +36,10 @@ public class Enemy : MonoBehaviour
     }
 
     spriter.flipX = target.position.x < rigid.position.x;
+  }
+
+  void OnEnable()
+  {
+    target = GameManager.instance.player.GetComponent<Rigidbody2D>();
   }
 }
