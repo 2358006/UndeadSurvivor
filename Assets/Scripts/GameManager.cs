@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
   public float maxTime = 20f;
 
   [Header("# Player Info")]
+  public int health = 0;
+  public int maxHealth = 0;
   public int level = 0;
   public int kill = 0;
   public int exp = 0;
@@ -21,14 +23,14 @@ public class GameManager : MonoBehaviour
     instance = this;
   }
 
+  void Start()
+  {
+    health = maxHealth;
+  }
+
   void Update()
   {
     gameTime += Time.deltaTime;
-
-    if (gameTime > 0.2f)
-    {
-      gameTime = 0f;
-    }
   }
 
   public void GetExp()
